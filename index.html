@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Mafia Barber | Respeto & Estilo</title>
+
+  <!-- Google Fonts: Pirata One (gótica), Bebas Neue (titulares) y Montserrat (textos) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;800&family=Pirata+One&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            mafia: ['"Pirata One"', 'cursive'],
+            impacto: ['"Bebas Neue"', 'sans-serif'],
+            sans: ['"Montserrat"', 'sans-serif'],
+          },
+          colors: {
+            oro: {
+              DEFAULT: '#D4AF37',
+              hover: '#b5932a',
+            },
+            talego: '#0a0a0a',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-black text-neutral-200 font-sans antialiased selection:bg-oro selection:text-black">
+
+  <!-- BARRA SUPERIOR -->
+  <header class="sticky top-0 z-50 bg-black/95 backdrop-blur border-b border-neutral-800">
+    <div class="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
+      
+      <!-- LOGO -->
+      <a href="#" class="flex flex-col">
+        <span class="font-mafia text-3xl md:text-4xl text-oro tracking-widest leading-none drop-shadow-[0_2px_4px_rgba(212,175,55,0.3)]">
+          La Mafia
+        </span>
+        <span class="font-impacto text-xs tracking-[0.35em] text-neutral-400 pl-1 uppercase">
+          Barber Club
+        </span>
+      </a>
+
+      <!-- NAVEGACIÓN -->
+      <nav class="hidden md:flex items-center gap-8 font-impacto tracking-wider text-lg text-neutral-400">
+        <a href="#barberos" class="hover:text-oro transition">El Cartel</a>
+        <a href="#servicios" class="hover:text-oro transition">La Carta</a>
+        <a href="#galeria" class="hover:text-oro transition">El Álbum</a>
+        <a href="#reglas" class="hover:text-oro transition">El Código</a>
+        <a href="#horario" class="hover:text-oro transition">Ubicación</a>
+      </nav>
+
+      <!-- BOTÓN PEDIR TURNO (Lleva a barberos para elegir) -->
+      <a href="#barberos" class="border border-oro bg-oro/10 hover:bg-oro text-oro hover:text-black font-impacto tracking-widest px-5 py-2 text-lg rounded-none transition duration-300">
+        Pedir Turno
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION CON FOTO ÚNICA HORIZONTAL (Modificado para no cortar en móvil) -->
+  <section class="relative py-24 md:py-32 px-4 text-center border-b border-neutral-900 bg-black overflow-hidden min-h-[100vh] md:min-h-[560px] flex items-center justify-center">
+    
+    <!-- FOTO ÚNICA DE FONDO (Comprimida en móvil, cover en PC) -->
+    <div class="absolute inset-0 opacity-60 md:opacity-75 pointer-events-none grayscale contrast-125 brightness-75 flex items-center justify-center">
+      <!-- Cambia 'equipo.jpg' por el nombre real de tu foto panorámica -->
+<img src="equipo.jpg" alt="Equipo La Mafia Barber" class="w-full h-full object-cover object-center">      
+      <!-- Degradado superior (menú) e inferior (fundido) -->
+      <div class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black to-transparent"></div>
+      <div class="absolute inset-x-0 bottom-0 h-32 md:h-24 bg-gradient-to-t from-black to-transparent"></div>
+    </div>
+
+    <!-- SOMBRA CENTRAL PROTECTORA PARA EL TEXTO -->
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(0,0,0,0.85)_0%,_rgba(0,0,0,0.4)_40%,_transparent_75%)] pointer-events-none"></div>
+
+    <!-- CONTENIDO DEL HERO -->
+    <div class="relative z-10 max-w-2xl mx-auto mt-16 md:mt-0">
+      <div class="inline-block border-y border-oro/60 py-1 px-4 mb-4 bg-black/60 backdrop-blur-sm">
+        <span class="font-impacto tracking-[0.3em] text-oro text-xs sm:text-sm uppercase">Fidelidad • Respeto • Técnica</span>
+      </div>
+
+      <h1 class="font-mafia text-5xl sm:text-7xl md:text-8xl text-white tracking-wide mb-4 drop-shadow-[0_4px_16px_rgba(0,0,0,1)]">
+        Cortes Finos & Navaja Limpia
+      </h1>
+
+      <p class="text-neutral-200 font-sans text-xs sm:text-sm md:text-base max-w-lg mx-auto mb-8 leading-relaxed uppercase tracking-wider drop-shadow-[0_2px_8px_rgba(0,0,0,1)]">
+        Aquí no se viene a improvisar. Elige a tu barbero, fija la hora y asegúrate la silla antes de quedarte fuera.
+      </p>
+
+      <!-- BOTONES DE RESERVA IGUALADOS -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <!-- Sustituir href por enlaces reales de Setmore de cada barbero -->
+        
+        <a href="#barberos" class="w-full sm:w-auto border border-oro bg-black/50 hover:bg-oro text-oro hover:text-black font-impacto text-xl sm:text-2xl tracking-widest px-8 py-3.5 uppercase transition-all transform active:scale-95">
+          Reserva tu cita
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN: EL CARTEL (LOS BARBEROS) -->
+  <section id="barberos" class="py-20 px-4 max-w-4xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="font-impacto text-4xl md:text-5xl tracking-widest text-white uppercase">El Cartel</h2>
+      <div class="w-16 h-0.5 bg-oro mx-auto mt-2 mb-3"></div>
+      <p class="text-neutral-500 text-xs uppercase tracking-widest font-semibold">Elige con quién sentarte.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+      
+      <!-- TARJETA JUAN -->
+      <div class="bg-talego border border-neutral-800 p-8 flex flex-col items-center text-center hover:border-oro/50 transition duration-300 relative group">
+        <!-- object-top asegura que se vea la cabeza en cortes verticales -->
+        <img src="juan.jpg" alt="Juan" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover object-top grayscale contrast-125 border-2 border-neutral-700 group-hover:border-oro transition duration-300 mb-6 shadow-lg shadow-black">
+        <h3 class="font-impacto text-3xl text-white tracking-widest uppercase mb-1">Juan</h3>
+        <p class="text-neutral-400 text-xs uppercase tracking-wider mb-8">Especialista en degradados y texturas</p>
+        
+        <!-- ENLACE SETMORE DE JUAN (Sustituir href) -->
+        <a href="https://lamafiabarber.setmore.com/juan-247333623" target="_blank" rel="noopener noreferrer" class="w-full block border border-oro text-oro hover:bg-oro hover:text-black font-impacto tracking-widest text-lg py-3 uppercase transition">
+          Ver Agenda de Juan
+        </a>
+      </div>
+
+      <!-- TARJETA RUBÉN -->
+      <div class="bg-talego border border-neutral-800 p-8 flex flex-col items-center text-center hover:border-oro/50 transition duration-300 relative group">
+        <!-- object-top asegura que se vea la cabeza en cortes verticales -->
+        <img src="rubenPNG.PNG" alt="Rubén" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover object-top grayscale contrast-125 border-2 border-neutral-700 group-hover:border-oro transition duration-300 mb-6 shadow-lg shadow-black">
+        <h3 class="font-impacto text-3xl text-white tracking-widest uppercase mb-1">Rubén</h3>
+        <p class="text-neutral-400 text-xs uppercase tracking-wider mb-8">Especialista en degradados y texturas</p>
+        
+        <!-- ENLACE SETMORE DE RUBÉN (Sustituir href) -->
+        <a href="https://lamafiabarber.setmore.com/ruben" target="_blank" rel="noopener noreferrer" class="w-full block border border-oro text-oro hover:bg-oro hover:text-black font-impacto tracking-widest text-lg py-3 uppercase transition">
+          Ver Agenda de Rubén
+        </a>
+      </div>
+
+    </div>
+
+    <!-- NUEVO CTA: Ver el perfil profesional / galería -->
+    <div class="text-center">
+      <a href="#galeria" class="inline-block border border-oro text-oro hover:bg-oro hover:text-black font-impacto tracking-widest text-xl px-10 py-4 uppercase transition duration-300 transform active:scale-95 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
+        Ver el Álbum del Templo
+      </a>
+    </div>
+  </section>
+
+  <!-- CATÁLOGO DE SERVICIOS -->
+  <section id="servicios" class="py-16 px-4 max-w-6xl mx-auto border-t border-neutral-900">
+    <div class="text-center mb-16">
+      <h2 class="font-impacto text-4xl md:text-5xl tracking-widest text-white uppercase">Nuestros Trabajos</h2>
+      <div class="w-16 h-0.5 bg-oro mx-auto mt-2 mb-3"></div>
+      <p class="text-neutral-500 text-xs uppercase tracking-widest font-semibold">Tarifas transparentes. Sin rodeos.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Servicio 1 -->
+      <div class="bg-talego border border-neutral-800 p-8 flex flex-col justify-between hover:border-oro/60 transition duration-300">
+        <div>
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="font-impacto text-2xl tracking-wider text-white uppercase">Corte normal</h3>
+            <span class="font-impacto text-3xl text-oro">12 €</span>
+          </div>
+          <p class="text-neutral-400 text-xs leading-relaxed mb-6 font-medium">Degradado extremo al cero / shaver, tijera en zona superior y remate de contornos a navaja.</p>
+          <span class="border border-neutral-700 text-neutral-400 text-[10px] tracking-widest uppercase px-2 py-1 font-bold">30 Min</span>
+        </div>
+      </div>
+
+      <!-- Servicio 2 -->
+      <div class="bg-talego border border-oro/40 p-8 flex flex-col justify-between shadow-[0_0_15px_rgba(212,175,55,0.08)] relative hover:border-oro transition duration-300">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-oro text-black font-impacto text-xs tracking-widest uppercase px-3 py-0.5">El Más Fiel</div>
+        <div>
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="font-impacto text-2xl tracking-wider text-white uppercase">Corte y barba</h3>
+            <span class="font-impacto text-3xl text-oro">15 €</span>
+          </div>
+          <p class="text-neutral-400 text-xs leading-relaxed mb-6 font-medium">Servicio completo: corte de pelo al detalle, perfilado de barba, toalla caliente y loción clásica.</p>
+          <span class="border border-oro/50 text-oro text-[10px] tracking-widest uppercase px-2 py-1 font-bold">30 Min</span>
+        </div>
+      </div>
+
+      <!-- Servicio 3 -->
+      <div class="bg-talego border border-neutral-800 p-8 flex flex-col justify-between hover:border-oro/60 transition duration-300">
+        <div>
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="font-impacto text-2xl tracking-wider text-white uppercase">Solo Barba</h3>
+            <span class="font-impacto text-3xl text-oro">5 €</span>
+          </div>
+          <p class="text-neutral-400 text-xs leading-relaxed mb-6 font-medium">Arreglo de barba tradicional, perfilado de pómulos y cuello con hoja descartable y bálsamo.</p>
+          <span class="border border-neutral-700 text-neutral-400 text-[10px] tracking-widest uppercase px-2 py-1 font-bold">10 Min</span>
+        </div>
+      </div>
+
+      <!-- SUPLEMENTO CEJAS (Horizontal y armonizado) -->
+      <div class="md:col-span-3 bg-talego border border-neutral-800 p-4 md:p-6 flex flex-col md:flex-row items-center justify-between hover:border-oro/50 transition duration-300 mt-2">
+        <div class="flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-4 md:gap-6 w-full">
+          
+          <!-- Precio destacado -->
+          <div class="shrink-0 flex items-center justify-center bg-oro/10 border border-oro/30 w-16 h-16 rounded-full shadow-[0_0_10px_rgba(212,175,55,0.1)]">
+             <span class="font-impacto text-2xl text-oro">+2€</span>
+          </div>
+          
+          <!-- Textos -->
+          <div class="flex-1 flex flex-col justify-center mt-2 md:mt-0">
+             <h3 class="font-impacto text-xl tracking-wider text-white uppercase mb-1">Arreglo de Cejas</h3>
+             <p class="text-neutral-400 text-xs leading-relaxed font-medium">Limpieza y diseño a navaja para una mirada afilada.</p>
+          </div>
+          
+          <!-- Etiqueta derecha -->
+          <div class="shrink-0 mt-3 md:mt-0 flex items-center">
+             <span class="border border-oro/30 text-oro text-[10px] tracking-widest uppercase px-3 py-1 font-bold bg-oro/5">Servicio Extra</span>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUEVA SECCIÓN: GALERÍA (EL ÁLBUM) -->
+  <section id="galeria" class="py-20 px-4 bg-neutral-950 border-t border-neutral-900">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="text-center mb-16">
+        <h2 class="font-mafia text-5xl md:text-7xl tracking-wider text-white">El Templo & El Arte</h2>
+        <div class="w-16 h-0.5 bg-oro mx-auto mt-2 mb-3"></div>
+        <p class="font-impacto tracking-[0.2em] text-neutral-500 text-xs uppercase font-semibold">Nuestro refugio, vuestro estilo.</p>
+      </div>
+
+      <!-- Subapartado 1: Los Artistas (Vuestros perfiles) -->
+      <div class="mb-16">
+        <h3 class="font-impacto text-2xl text-oro tracking-widest uppercase mb-8 border-b border-neutral-800 pb-3">Los Artistas</h3>
+        <div class="flex flex-col md:flex-row items-center gap-10 justify-center">
+          
+          <!-- Perfil Juan -->
+          <div class="flex flex-col items-center text-center">
+            <img src="juan.jpg" alt="Perfil Juan Barber" class="w-24 h-24 rounded-full object-cover object-top grayscale border border-neutral-700 shadow-md shadow-black mb-4">
+            <p class="font-mafia text-2xl text-white">Juan</p>
+            <p class="text-neutral-400 text-xs uppercase font-medium">Respeto a la técnica</p>
+          </div>
+
+          <!-- Perfil Rubén -->
+          <div class="flex flex-col items-center text-center">
+            <img src="rubenPNG.PNG" alt="Perfil Rubén Barber" class="w-24 h-24 rounded-full object-cover object-top grayscale border border-neutral-700 shadow-md shadow-black mb-4">
+            <p class="font-mafia text-2xl text-white">Rubén</p>
+            <p class="text-neutral-400 text-xs uppercase font-medium">Cuidado al detalle</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Subapartado 2: Los Acabados (Fotos de pelados reales) -->
+      <div class="mb-16">
+        <h3 class="font-impacto text-2xl text-oro tracking-widest uppercase mb-8 border-b border-neutral-800 pb-3">Los Acabados</h3>
+        
+        <!-- Grid de fotos de cortes (Optimizado para móvil: 2 cols / PC: 4 cols) -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          
+          <!-- Foto Corte 1 -->
+          <div class="aspect-square bg-neutral-900 border border-neutral-800 overflow-hidden group">
+            <img src="img/corte-1.jpg" alt="Fade Sicario real" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-300">
+          </div>
+
+          <!-- Foto Corte 2 -->
+          <div class="aspect-square bg-neutral-900 border border-neutral-800 overflow-hidden group">
+            <img src="img/corte-2.jpg" alt="Pack El Capo real" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-300">
+          </div>
+
+          <!-- Foto Corte 3 -->
+          <div class="aspect-square bg-neutral-900 border border-neutral-800 overflow-hidden group">
+            <img src="img/corte-3.jpg" alt="Afeitado tradicional real" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-300">
+          </div>
+
+          <!-- Foto Corte 4 -->
+          <div class="aspect-square bg-neutral-900 border border-neutral-800 overflow-hidden group">
+            <img src="img/corte-4.jpg" alt="Degradado texturizado real" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-300">
+          </div>
+
+          <!-- Foto Corte 5 -->
+          <div class="aspect-square bg-neutral-900 border border-neutral-800 overflow-hidden group">
+            <img src="img/corte-5.jpg" alt="Perfilado de barba real" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-300">
+          </div>
+
+          <!-- Foto Corte 6 -->
+          <div class="aspect-square bg-neutral-900 border border-neutral-800 overflow-hidden group">
+            <img src="img/corte-6.jpg" alt="Corte clásico tijera real" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-300">
+          </div>
+
+          <!-- Foto Corte 7 -->
+          <div class="aspect-square bg-neutral-900 border border-neutral-800 overflow-hidden group">
+            <img src="img/corte-7.jpg" alt="Diseño de cejas real" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-300">
+          </div>
+
+          <!-- Foto Corte 8 -->
+          <div class="aspect-square bg-neutral-900 border border-neutral-800 overflow-hidden group">
+            <img src="img/corte-8.jpg" alt="Fade extremo real" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-300">
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Subapartado 3: El Templo (Fotos del local) -->
+      <div>
+        <h3 class="font-impacto text-2xl text-oro tracking-widest uppercase mb-8 border-b border-neutral-800 pb-3">El Templo</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <!-- Foto Local 1: Fachada o interior general -->
+          <div class="aspect-video bg-neutral-900 border border-neutral-800 overflow-hidden">
+            <img src="img/local-1.jpg" alt="Interior La Mafia Barber" class="w-full h-full object-cover grayscale contrast-110">
+          </div>
+
+          <!-- Foto Local 2: Detalle (sillón, navajas, cartel) -->
+          <div class="aspect-video bg-neutral-900 border border-neutral-800 overflow-hidden">
+            <img src="img/local-2.jpg" alt="Detalle sillón barbero" class="w-full h-full object-cover grayscale contrast-110">
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EL CÓDIGO -->
+  <section id="reglas" class="py-16 px-4 bg-neutral-950 border-t border-neutral-900">
+    <div class="max-w-4xl mx-auto text-center">
+      <h3 class="font-mafia text-4xl text-oro mb-6">El Código del Templo</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-neutral-400 text-xs uppercase tracking-wider">
+        <div class="border-t border-neutral-800 pt-4">
+          <p class="font-impacto text-lg text-white mb-1">01. Puntualidad</p>
+          <p>Llega 5 minutos antes. El tiempo del barbero y del resto se respeta.</p>
+        </div>
+        <div class="border-t border-neutral-800 pt-4">
+          <p class="font-impacto text-lg text-white mb-1">02. Avisa si Fallas</p>
+          <p>Cancela con mínimo 2 horas de antelación desde el link de tu correo.</p>
+        </div>
+        <div class="border-t border-neutral-800 pt-4">
+          <p class="font-impacto text-lg text-white mb-1">03. Sin Sorpresas</p>
+          <p>Lo que ves es lo que pagas. Acabados nítidos sin suplementos raros.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HORARIO Y CONTACTO -->
+  <section id="horario" class="py-16 px-4 max-w-4xl mx-auto border-t border-neutral-900">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+      
+      <!-- Horario -->
+      <div class="border border-neutral-800 p-6 bg-talego relative">
+        <div class="absolute -top-3 left-4 bg-black px-2 text-xs uppercase text-neutral-500 font-medium">Cuadrante Semanal</div>
+        <h3 class="font-impacto text-2xl tracking-wider text-white mb-4">Apertura</h3>
+        <ul class="space-y-3 text-xs uppercase tracking-wider text-neutral-400">
+          <li class="flex justify-between border-b border-neutral-900 pb-2">
+            <span>Lunes a Viernes</span>
+            <span class="text-white font-bold">10:00 - 14:00 | 16:30 - 20:30</span>
+          </li>
+          <li class="flex justify-between text-neutral-600">
+            <span>Sábados</span>
+            <span>Descanso</span>
+          </li>
+          <li class="flex justify-between text-neutral-600">
+            <span>Domingos</span>
+            <span>Descanso</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Ubicación -->
+      <div class="border border-neutral-800 p-6 bg-talego relative">
+        <div class="absolute -top-3 left-4 bg-black px-2 text-xs uppercase text-neutral-500 font-medium">Localización</div>
+        <h3 class="font-impacto text-2xl tracking-wider text-white mb-4">El Punto</h3>
+        <p class="text-neutral-400 text-xs uppercase tracking-wider leading-relaxed mb-4">
+          Calle Veracruz 10, Local Bajo<br>
+          11560, Trebujena - Cádiz
+        </p>
+        <p class="text-xs uppercase tracking-wider text-neutral-400 mb-6">
+          Teléfono / WhatsApp: <a href="tel:+34600000000" class="text-oro font-bold hover:underline">+34 600 00 00 00</a>
+        </p>
+        <a href="https://maps.app.goo.gl/6YopWToUpdDYMM358" target="_blank" rel="noopener noreferrer" class="inline-block border border-oro/60 hover:border-oro text-oro font-impacto tracking-widest text-sm px-4 py-2 uppercase transition duration-300 transform active:scale-95 bg-black">
+          Abrir en el Mapa
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-8 text-center border-t border-neutral-900 bg-black">
+    <p class="font-mafia text-xl text-neutral-600 tracking-wider leading-none">La Mafia Barber</p>
+    <p class="font-impacto text-xs text-neutral-700 tracking-widest uppercase mt-1">Barber Club</p>
+    <p class="text-[10px] text-neutral-800 uppercase tracking-widest mt-3">© 2026. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>
