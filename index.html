@@ -1,16 +1,25 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es" class="motion-safe:scroll-smooth scroll-pt-24">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>La Mafia Barber | Respeto & Estilo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Barbería en Trebujena (Cádiz) | La Mafia Barber – Reserva tu cita online</title>
+  <meta name="description" content="Barbería en Trebujena: corte desde 12 €, corte y barba 15 €, arreglo de barba y cejas a navaja. Reserva online con Juan o Rubén. Calle Veracruz 10.">
+  <link rel="canonical" href="https://juanfrandigital.github.io/la-mafia-barber/">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="fotos/logo.jpg">
 
-  <!-- Google Fonts: Pirata One (gótica), Bebas Neue (titulares) y Montserrat (textos) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="La Mafia Barber | Barbería en Trebujena">
+  <meta property="og:description" content="Cortes finos y navaja limpia. Reserva tu cita online.">
+  <meta property="og:image" content="https://juanfrandigital.github.io/la-mafia-barber/fotos/equipo.jpg">
+  <meta property="og:url" content="https://juanfrandigital.github.io/la-mafia-barber/">
+  <meta property="og:locale" content="es_ES">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;800&family=Pirata+One&display=swap" rel="stylesheet">
 
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -18,192 +27,157 @@
         extend: {
           fontFamily: {
             mafia: ['"Pirata One"', 'cursive'],
-            impacto: ['"Bebas Neue"', 'sans-serif'],
-            sans: ['"Montserrat"', 'sans-serif'],
+            impacto: ['"Bebas Neue"', 'Impact', 'sans-serif'],
+            sans: ['"Montserrat"', 'system-ui', 'sans-serif'],
           },
           colors: {
-            oro: {
-              DEFAULT: '#D4AF37',
-              hover: '#b5932a',
-            },
+            oro: { DEFAULT: '#D4AF37', hover: '#b5932a' },
             talego: '#0a0a0a',
           }
         }
       }
     }
   </script>
+
+  <style>
+    #galeria .foto-color img { filter: none; transform: scale(1.05); }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    "name": "La Mafia Barber",
+    "url": "https://juanfrandigital.github.io/la-mafia-barber/",
+    "image": "https://juanfrandigital.github.io/la-mafia-barber/fotos/equipo.jpg",
+    "telephone": "+34600000000",
+    "priceRange": "€",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Calle Veracruz 10, Local Bajo",
+      "postalCode": "11560",
+      "addressLocality": "Trebujena",
+      "addressRegion": "Cádiz",
+      "addressCountry": "ES"
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "10:00", "closes": "14:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "16:30", "closes": "20:30" }
+    ]
+  }
+  </script>
 </head>
 <body class="bg-black text-neutral-200 font-sans antialiased selection:bg-oro selection:text-black">
 
- <!-- TOP BAR AUDIO PLAYER COMPLETO -->
-<div class="bg-zinc-900 text-yellow-600 px-4 py-2 flex items-center justify-center space-x-3 border-b border-yellow-600/20 text-sm shadow-md w-full z-50">
-  <button id="playPauseBtn" class="hover:text-yellow-400 transition-colors focus:outline-none flex items-center" aria-label="Reproducir música">
-    <!-- Icono de Play (SVG) -->
-    <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M8 5v14l11-7z" />
-    </svg>
-    <!-- Icono de Pause (SVG oculto por defecto) -->
-    <svg id="pauseIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-    </svg>
-  </button>
-  
-  <span class="font-semibold tracking-wider text-xs uppercase">El sonido de La Mafia Barber</span>
+  <a href="#contenido" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-oro focus:text-black focus:px-4 focus:py-2 font-impacto tracking-widest">Saltar al contenido</a>
 
-  <!-- Reproductor de audio real (invisible) -->
-  <audio id="bgMusic" preload="none" loop>
-    <!-- Tu ruta exacta a la canción -->
-    <source src="audio/Beretta.mp3" type="audio/mpeg">
-  </audio>
-</div>
+  <!-- REPRODUCTOR -->
+  <div class="bg-zinc-900 text-yellow-600 px-4 py-2 flex items-center justify-center space-x-3 border-b border-yellow-600/20 text-sm shadow-md w-full">
+    <button id="playPauseBtn" type="button" class="hover:text-yellow-400 transition-colors flex items-center rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500" aria-label="Reproducir música" aria-pressed="false">
+      <svg id="playIcon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      <svg id="pauseIcon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    </button>
+    <span class="font-semibold tracking-wider text-xs uppercase">El sonido de La Mafia Barber</span>
+    <audio id="bgMusic" preload="none" loop>
+      <source src="audio/Beretta.mp3" type="audio/mpeg">
+    </audio>
+  </div>
 
-<!-- EL MOTOR (JAVASCRIPT) QUE HACE QUE EL BOTÓN FUNCIONE -->
-<script>
-  const audio = document.getElementById('bgMusic');
-  const btn = document.getElementById('playPauseBtn');
-  const playIcon = document.getElementById('playIcon');
-  const pauseIcon = document.getElementById('pauseIcon');
-
-  btn.addEventListener('click', () => {
-    if (audio.paused) {
-      audio.play();
-      playIcon.classList.add('hidden');
-      pauseIcon.classList.remove('hidden');
-    } else {
-      audio.pause();
-      pauseIcon.classList.add('hidden');
-      playIcon.classList.remove('hidden');
-    }
-  });
-</script>
-<!-- FIN DEL TOP BAR AUDIO PLAYER -->
-
-  <!-- BARRA SUPERIOR -->
-  <header class="sticky top-0 z-50 bg-black/95 backdrop-blur border-b border-neutral-800">
+  <!-- CABECERA -->
+  <header class="sticky top-[env(safe-area-inset-top,0px)] z-50 bg-black/95 backdrop-blur border-b border-neutral-800">
     <div class="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
-      
-      <!-- LOGO -->
-      <a href="#" class="flex flex-col">
-        <span class="font-mafia text-3xl md:text-4xl text-oro tracking-widest leading-none drop-shadow-[0_2px_4px_rgba(212,175,55,0.3)]">
-          La Mafia
-        </span>
-        <span class="font-impacto text-xs tracking-[0.35em] text-neutral-400 pl-1 uppercase">
-          Barber Club
-        </span>
+      <a href="#" class="flex flex-col" aria-label="La Mafia Barber, inicio">
+        <span class="font-mafia text-3xl md:text-4xl text-oro tracking-widest leading-none drop-shadow-[0_2px_4px_rgba(212,175,55,0.3)]">La Mafia</span>
+        <span class="font-impacto text-xs tracking-[0.35em] text-neutral-400 pl-1 uppercase">Barber Club</span>
       </a>
 
-      <!-- NAVEGACIÓN -->
-      <nav class="hidden md:flex items-center gap-8 font-impacto tracking-wider text-lg text-neutral-400">
-        <a href="#barberos" class="hover:text-oro transition">El Cartel</a>
-        <a href="#servicios" class="hover:text-oro transition">La Carta</a>
-        <a href="#galeria" class="hover:text-oro transition">El Álbum</a>
-        <a href="#reglas" class="hover:text-oro transition">El Código</a>
-        <a href="#horario" class="hover:text-oro transition">Ubicación</a>
+      <nav aria-label="Principal" class="hidden md:flex items-center gap-8 font-impacto tracking-wider text-lg text-neutral-400">
+        <a href="#barberos" class="hover:text-oro transition">Barberos</a>
+        <a href="#servicios" class="hover:text-oro transition">Servicios y precios</a>
+        <a href="#galeria" class="hover:text-oro transition">Trabajos</a>
+        <a href="#reglas" class="hover:text-oro transition">Normas</a>
+        <a href="#horario" class="hover:text-oro transition">Horario y ubicación</a>
       </nav>
 
-      <!-- BOTÓN PEDIR TURNO (Lleva a barberos para elegir) -->
-      <a href="#barberos" class="border border-oro bg-oro/10 hover:bg-oro text-oro hover:text-black font-impacto tracking-widest px-5 py-2 text-lg rounded-none transition duration-300">
-        Pedir Turno
+      <a href="#barberos" class="border border-oro bg-oro/10 hover:bg-oro text-oro hover:text-black font-impacto tracking-widest px-5 py-2 text-lg transition duration-300 focus-visible:ring-2 focus-visible:ring-oro">
+        Pedir cita
       </a>
     </div>
   </header>
 
-  <!-- HERO SECTION CON FOTO ÚNICA HORIZONTAL (Modificado para no cortar en móvil) -->
-  <section class="relative py-24 md:py-32 px-4 text-center border-b border-neutral-900 bg-black overflow-hidden min-h-[100vh] md:min-h-[560px] flex items-center justify-center">
-    
-    <!-- FOTO ÚNICA DE FONDO (Comprimida en móvil, cover en PC) -->
-    <div class="absolute inset-0 opacity-60 md:opacity-75 pointer-events-none grayscale contrast-125 brightness-75 flex items-center justify-center">
-      <!-- Cambia 'equipo.jpg' por el nombre real de tu foto panorámica -->
-<img src="fotos/equipo.jpg" alt="Equipo La Mafia Barber" class="w-full h-full object-cover object-center">      
-      <!-- Degradado superior (menú) e inferior (fundido) -->
+  <main id="contenido">
+
+  <!-- HERO -->
+  <section class="relative py-24 md:py-32 px-4 text-center border-b border-neutral-900 bg-black overflow-hidden min-h-[85svh] md:min-h-[560px] flex items-center justify-center">
+    <div class="absolute inset-0 opacity-60 md:opacity-75 pointer-events-none grayscale contrast-125 brightness-75">
+      <img src="fotos/equipo.webp" alt="Juan y Rubén, de espaldas con la camiseta de La Mafia Barber, cortando el pelo en un evento al aire libre" width="906" height="602" fetchpriority="high" decoding="async" class="w-full h-full object-cover object-[50%_30%]">
       <div class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black to-transparent"></div>
       <div class="absolute inset-x-0 bottom-0 h-32 md:h-24 bg-gradient-to-t from-black to-transparent"></div>
     </div>
-
-    <!-- SOMBRA CENTRAL PROTECTORA PARA EL TEXTO -->
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(0,0,0,0.85)_0%,_rgba(0,0,0,0.4)_40%,_transparent_75%)] pointer-events-none"></div>
 
-    <!-- CONTENIDO DEL HERO -->
-    <div class="relative z-10 max-w-2xl mx-auto mt-16 md:mt-0">
+    <div class="relative z-10 max-w-2xl mx-auto md:mt-0">
       <div class="inline-block border-y border-oro/60 py-1 px-4 mb-4 bg-black/60 backdrop-blur-sm">
         <span class="font-impacto tracking-[0.3em] text-oro text-xs sm:text-sm uppercase">Fidelidad • Respeto • Técnica</span>
       </div>
 
       <h1 class="font-mafia text-5xl sm:text-7xl md:text-8xl text-white tracking-wide mb-4 drop-shadow-[0_4px_16px_rgba(0,0,0,1)]">
         Cortes Finos & Navaja Limpia
+        <span class="sr-only">– Barbería en Trebujena, Cádiz</span>
       </h1>
 
-      <p class="text-neutral-200 font-sans text-xs sm:text-sm md:text-base max-w-lg mx-auto mb-8 leading-relaxed uppercase tracking-wider drop-shadow-[0_2px_8px_rgba(0,0,0,1)]">
-        Aquí no se viene a improvisar. Elige a tu barbero, fija la hora y asegúrate la silla antes de quedarte fuera.
+      <p class="text-neutral-200 text-xs sm:text-sm md:text-base max-w-lg mx-auto mb-8 leading-relaxed uppercase tracking-wider drop-shadow-[0_2px_8px_rgba(0,0,0,1)]">
+        Barbería en Trebujena. Elige a tu barbero, fija la hora y asegúrate la silla antes de quedarte fuera.
       </p>
 
-      <!-- BOTONES DE RESERVA IGUALADOS -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <!-- Sustituir href por enlaces reales de Setmore de cada barbero -->
-        
-        <a href="#barberos" class="w-full sm:w-auto border border-oro bg-black/50 hover:bg-oro text-oro hover:text-black font-impacto text-xl sm:text-2xl tracking-widest px-8 py-3.5 uppercase transition-all transform active:scale-95">
-          Reserva tu cita
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECCIÓN: EL CARTEL (LOS BARBEROS) -->
-  <section id="barberos" class="py-20 px-4 max-w-4xl mx-auto">
-    <div class="text-center mb-16">
-      <h2 class="font-impacto text-4xl md:text-5xl tracking-widest text-white uppercase">El Cartel</h2>
-      <div class="w-16 h-0.5 bg-oro mx-auto mt-2 mb-3"></div>
-      <p class="text-neutral-500 text-xs uppercase tracking-widest font-semibold">Elige con quién sentarte.</p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-      
-      <!-- TARJETA JUAN -->
-      <div class="bg-talego border border-neutral-800 p-8 flex flex-col items-center text-center hover:border-oro/50 transition duration-300 relative group">
-        <!-- object-top asegura que se vea la cabeza en cortes verticales -->
-        <img src="fotos/juan.jpg" alt="Juan" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover object-top grayscale contrast-125 border-2 border-neutral-700 group-hover:border-oro transition duration-300 mb-6 shadow-lg shadow-black">
-        <h3 class="font-impacto text-3xl text-white tracking-widest uppercase mb-1">Juan</h3>
-        <p class="text-neutral-400 text-xs uppercase tracking-wider mb-8">Especialista en degradados y texturas</p>
-        
-        <!-- ENLACE SETMORE DE JUAN (Sustituir href) -->
-        <a href="https://lamafiabarber.setmore.com/juan-247333623" target="_blank" rel="noopener noreferrer" class="w-full block border border-oro text-oro hover:bg-oro hover:text-black font-impacto tracking-widest text-lg py-3 uppercase transition">
-          Ver Agenda de Juan
-        </a>
-      </div>
-
-      <!-- TARJETA RUBÉN -->
-      <div class="bg-talego border border-neutral-800 p-8 flex flex-col items-center text-center hover:border-oro/50 transition duration-300 relative group">
-        <!-- object-top asegura que se vea la cabeza en cortes verticales -->
-        <img src="fotos/ruben.PNG" alt="Rubén" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover object-top grayscale contrast-125 border-2 border-neutral-700 group-hover:border-oro transition duration-300 mb-6 shadow-lg shadow-black">
-        <h3 class="font-impacto text-3xl text-white tracking-widest uppercase mb-1">Rubén</h3>
-        <p class="text-neutral-400 text-xs uppercase tracking-wider mb-8">Especialista en degradados y texturas</p>
-        
-        <!-- ENLACE SETMORE DE RUBÉN (Sustituir href) -->
-        <a href="https://lamafiabarber.setmore.com/ruben" target="_blank" rel="noopener noreferrer" class="w-full block border border-oro text-oro hover:bg-oro hover:text-black font-impacto tracking-widest text-lg py-3 uppercase transition">
-          Ver Agenda de Rubén
-        </a>
-      </div>
-
-    </div>
-
-    <!-- NUEVO CTA: Ver el perfil profesional / galería -->
-    <div class="text-center">
-      <a href="#galeria" class="inline-block border border-oro text-oro hover:bg-oro hover:text-black font-impacto tracking-widest text-xl px-10 py-4 uppercase transition duration-300 transform active:scale-95 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
-        Ver el Álbum del Templo
+      <a href="#barberos" class="w-full sm:w-auto inline-block border border-oro bg-black/50 hover:bg-oro text-oro hover:text-black font-impacto text-xl sm:text-2xl tracking-widest px-8 py-3.5 uppercase transition-all active:scale-95 focus-visible:ring-2 focus-visible:ring-oro">
+        Reserva tu cita
       </a>
     </div>
   </section>
 
-  <!-- CATÁLOGO DE SERVICIOS -->
+  <!-- BARBEROS -->
+  <section id="barberos" class="py-20 px-4 max-w-4xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="font-impacto text-4xl md:text-5xl tracking-widest text-white uppercase">Elige a tu barbero</h2>
+      <div class="w-16 h-0.5 bg-oro mx-auto mt-2 mb-3"></div>
+      <p class="text-neutral-400 text-xs uppercase tracking-widest font-semibold">Reserva online en menos de un minuto.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-talego border border-neutral-800 p-8 flex flex-col items-center text-center hover:border-oro/50 transition duration-300 group">
+        <img src="fotos/juan.webp" alt="Juan, barbero de La Mafia Barber en Trebujena" width="160" height="160" loading="lazy" decoding="async" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover object-top grayscale contrast-125 border-2 border-neutral-700 group-hover:border-oro transition duration-300 mb-6 shadow-lg shadow-black">
+        <h3 class="font-impacto text-3xl text-white tracking-widest uppercase mb-1">Juan</h3>
+        <p class="text-neutral-400 text-xs uppercase tracking-wider mb-8">Especialista en degradados y texturas</p>
+        <a href="https://lamafiabarber.setmore.com/juan-247333623" target="_blank" rel="noopener noreferrer" class="w-full block border border-oro text-oro hover:bg-oro hover:text-black font-impacto tracking-widest text-lg py-3 uppercase transition focus-visible:ring-2 focus-visible:ring-oro">
+          Ver agenda de Juan<span class="sr-only"> (se abre en una pestaña nueva)</span>
+        </a>
+      </div>
+
+      <div class="bg-talego border border-neutral-800 p-8 flex flex-col items-center text-center hover:border-oro/50 transition duration-300 group">
+        <img src="fotos/ruben.webp" alt="Rubén, barbero de La Mafia Barber en Trebujena" width="160" height="160" loading="lazy" decoding="async" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover object-top grayscale contrast-125 border-2 border-neutral-700 group-hover:border-oro transition duration-300 mb-6 shadow-lg shadow-black">
+        <h3 class="font-impacto text-3xl text-white tracking-widest uppercase mb-1">Rubén</h3>
+        <p class="text-neutral-400 text-xs uppercase tracking-wider mb-8">Especialista en degradados y texturas</p>
+        <a href="https://lamafiabarber.setmore.com/ruben" target="_blank" rel="noopener noreferrer" class="w-full block border border-oro text-oro hover:bg-oro hover:text-black font-impacto tracking-widest text-lg py-3 uppercase transition focus-visible:ring-2 focus-visible:ring-oro">
+          Ver agenda de Rubén<span class="sr-only"> (se abre en una pestaña nueva)</span>
+        </a>
+      </div>
+    </div>
+
+    <p class="text-center mt-8 text-xs text-neutral-400 uppercase tracking-wider">
+      ¿Quieres ver nuestro trabajo? <a href="#galeria" class="text-oro underline underline-offset-4 hover:text-white">Mira la galería</a>
+    </p>
+  </section>
+
+  <!-- SERVICIOS -->
   <section id="servicios" class="py-16 px-4 max-w-6xl mx-auto border-t border-neutral-900">
     <div class="text-center mb-16">
-      <h2 class="font-impacto text-4xl md:text-5xl tracking-widest text-white uppercase">Nuestros Trabajos</h2>
+      <h2 class="font-impacto text-4xl md:text-5xl tracking-widest text-white uppercase">Servicios y precios</h2>
       <div class="w-16 h-0.5 bg-oro mx-auto mt-2 mb-3"></div>
-      <p class="text-neutral-500 text-xs uppercase tracking-widest font-semibold">Tarifas transparentes. Sin rodeos.</p>
+      <p class="text-neutral-400 text-xs uppercase tracking-widest font-semibold">Tarifas transparentes. Sin rodeos.</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <!-- Servicio 1 -->
       <div class="bg-talego border border-neutral-800 p-8 flex flex-col justify-between hover:border-oro/60 transition duration-300">
         <div>
           <div class="flex justify-between items-start mb-4">
@@ -211,232 +185,183 @@
             <span class="font-impacto text-3xl text-oro">12 €</span>
           </div>
           <p class="text-neutral-400 text-xs leading-relaxed mb-6 font-medium">Degradado extremo al cero / shaver, tijera en zona superior y remate de contornos a navaja.</p>
-          <span class="border border-neutral-700 text-neutral-400 text-[10px] tracking-widest uppercase px-2 py-1 font-bold">30 Min</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="border border-neutral-700 text-neutral-400 text-xs tracking-widest uppercase px-2 py-1 font-bold">30 min</span>
+          <a href="#barberos" class="text-oro font-impacto tracking-widest hover:text-white">Reservar</a>
         </div>
       </div>
 
-      <!-- Servicio 2 -->
       <div class="bg-talego border border-oro/40 p-8 flex flex-col justify-between shadow-[0_0_15px_rgba(212,175,55,0.08)] relative hover:border-oro transition duration-300">
-        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-oro text-black font-impacto text-xs tracking-widest uppercase px-3 py-0.5">El Más Fiel</div>
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-oro text-black font-impacto text-xs tracking-widest uppercase px-3 py-0.5">El más pedido</div>
         <div>
           <div class="flex justify-between items-start mb-4">
             <h3 class="font-impacto text-2xl tracking-wider text-white uppercase">Corte y barba</h3>
             <span class="font-impacto text-3xl text-oro">15 €</span>
           </div>
           <p class="text-neutral-400 text-xs leading-relaxed mb-6 font-medium">Servicio completo: corte de pelo al detalle, perfilado de barba, toalla caliente y loción clásica.</p>
-          <span class="border border-oro/50 text-oro text-[10px] tracking-widest uppercase px-2 py-1 font-bold">30 Min</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="border border-oro/50 text-oro text-xs tracking-widest uppercase px-2 py-1 font-bold">30 min</span>
+          <a href="#barberos" class="text-oro font-impacto tracking-widest hover:text-white">Reservar</a>
         </div>
       </div>
 
-      <!-- Servicio 3 -->
       <div class="bg-talego border border-neutral-800 p-8 flex flex-col justify-between hover:border-oro/60 transition duration-300">
         <div>
           <div class="flex justify-between items-start mb-4">
-            <h3 class="font-impacto text-2xl tracking-wider text-white uppercase">Solo Barba</h3>
+            <h3 class="font-impacto text-2xl tracking-wider text-white uppercase">Solo barba</h3>
             <span class="font-impacto text-3xl text-oro">5 €</span>
           </div>
           <p class="text-neutral-400 text-xs leading-relaxed mb-6 font-medium">Arreglo de barba tradicional, perfilado de pómulos y cuello con hoja descartable y bálsamo.</p>
-          <span class="border border-neutral-700 text-neutral-400 text-[10px] tracking-widest uppercase px-2 py-1 font-bold">10 Min</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="border border-neutral-700 text-neutral-400 text-xs tracking-widest uppercase px-2 py-1 font-bold">10 min</span>
+          <a href="#barberos" class="text-oro font-impacto tracking-widest hover:text-white">Reservar</a>
         </div>
       </div>
 
-      <!-- SUPLEMENTO CEJAS (Horizontal y armonizado) -->
-      <div class="md:col-span-3 bg-talego border border-neutral-800 p-4 md:p-6 flex flex-col md:flex-row items-center justify-between hover:border-oro/50 transition duration-300 mt-2">
-        <div class="flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-4 md:gap-6 w-full">
-          
-          <!-- Precio destacado -->
-          <div class="shrink-0 flex items-center justify-center bg-oro/10 border border-oro/30 w-16 h-16 rounded-full shadow-[0_0_10px_rgba(212,175,55,0.1)]">
-             <span class="font-impacto text-2xl text-oro">+2€</span>
-          </div>
-          
-          <!-- Textos -->
-          <div class="flex-1 flex flex-col justify-center mt-2 md:mt-0">
-             <h3 class="font-impacto text-xl tracking-wider text-white uppercase mb-1">Arreglo de Cejas</h3>
-             <p class="text-neutral-400 text-xs leading-relaxed font-medium">Limpieza y diseño a navaja para una mirada afilada.</p>
-          </div>
-          
-          <!-- Etiqueta derecha -->
-          <div class="shrink-0 mt-3 md:mt-0 flex items-center">
-             <span class="border border-oro/30 text-oro text-[10px] tracking-widest uppercase px-3 py-1 font-bold bg-oro/5">Servicio Extra</span>
-          </div>
-          
+      <div class="md:col-span-3 bg-talego border border-neutral-800 p-4 md:p-6 flex flex-col md:flex-row items-center gap-4 md:gap-6 hover:border-oro/50 transition duration-300 mt-2">
+        <div class="shrink-0 flex items-center justify-center bg-oro/10 border border-oro/30 w-16 h-16 rounded-full">
+          <span class="font-impacto text-2xl text-oro">+2 €</span>
         </div>
+        <div class="flex-1 text-center md:text-left">
+          <h3 class="font-impacto text-xl tracking-wider text-white uppercase mb-1">Arreglo de cejas</h3>
+          <p class="text-neutral-400 text-xs leading-relaxed font-medium">Limpieza y diseño a navaja para una mirada afilada.</p>
+        </div>
+        <span class="shrink-0 border border-oro/30 text-oro text-xs tracking-widest uppercase px-3 py-1 font-bold bg-oro/5">Servicio extra</span>
       </div>
     </div>
   </section>
 
-  <!-- NUEVA SECCIÓN: GALERÍA (EL ÁLBUM) -->
+  <!-- GALERÍA -->
   <section id="galeria" class="py-20 px-4 bg-neutral-950 border-t border-neutral-900">
     <div class="max-w-6xl mx-auto">
-      
       <div class="text-center mb-16">
         <h2 class="font-mafia text-5xl md:text-7xl tracking-wider text-white">El Templo & El Arte</h2>
         <div class="w-16 h-0.5 bg-oro mx-auto mt-2 mb-3"></div>
-        <p class="font-impacto tracking-[0.2em] text-neutral-500 text-xs uppercase font-semibold">Nuestro refugio, vuestro estilo.</p>
+        <p class="font-impacto tracking-[0.2em] text-neutral-400 text-sm uppercase">Nuestro refugio, vuestro estilo.</p>
       </div>
 
-      <!-- Subapartado 1: Los Artistas (Vuestros perfiles) -->
       <div class="mb-16">
-        <h3 class="font-impacto text-2xl text-oro tracking-widest uppercase mb-8 border-b border-neutral-800 pb-3">Los Artistas</h3>
-        <div class="flex flex-col md:flex-row items-center gap-10 justify-center">
-          
-          <!-- Perfil Juan -->
-          <div class="flex flex-col items-center text-center">
-            <img src="fotos/juan.jpg" alt="Perfil Juan Barber" class="w-24 h-24 rounded-full object-cover object-top grayscale border border-neutral-700 shadow-md shadow-black mb-4">
-            <p class="font-mafia text-2xl text-white">Juan</p>
-            <p class="text-neutral-400 text-xs uppercase font-medium">Respeto a la técnica</p>
-          </div>
-
-          <!-- Perfil Rubén -->
-          <div class="flex flex-col items-center text-center">
-            <img src="fotos/ruben.PNG" alt="Perfil Rubén Barber" class="w-24 h-24 rounded-full object-cover object-top grayscale border border-neutral-700 shadow-md shadow-black mb-4">
-            <p class="font-mafia text-2xl text-white">Rubén</p>
-            <p class="text-neutral-400 text-xs uppercase font-medium">Cuidado al detalle</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Subapartado 2: Los Acabados (Fotos de pelados reales) -->
-      <div class="mb-16">
-        <h3 class="font-impacto text-2xl text-oro tracking-widest uppercase mb-8 border-b border-neutral-800 pb-3">Los Acabados</h3>
-        
-        <!-- Grid de fotos de cortes (Optimizado para móvil: 2 cols / PC: 4 cols) -->
+        <h3 class="font-impacto text-2xl text-oro tracking-widest uppercase mb-8 border-b border-neutral-800 pb-3">Los acabados</h3>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-          
-          <!-- Foto Corte 1 -->
-          <div class="aspect-square bg-neutral-900 border border-neutral-800 overflow-hidden group">
-            <img src="img/corte-1.jpg" alt="Corte 1" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-300">
-          </div>
-
-          <!-- Foto Corte 2 -->
-          <div class="aspect-square bg-neutral-900 border border-neutral-800 overflow-hidden group">
-            <img src="img/corte-2.jpg" alt="Corte 2" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-300">
-          </div>
-
-          <!-- Foto Corte 3 -->
-          <div class="aspect-square bg-neutral-900 border border-neutral-800 overflow-hidden group">
-            <img src="img/corte-3.jpg" alt="Corte 3" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-300">
-          </div>
-
-          <!-- Foto Corte 4 -->
-          <div class="aspect-square bg-neutral-900 border border-neutral-800 overflow-hidden group">
-            <img src="img/corte-4.jpg" alt="Corte 4" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-300">
-          </div>
-
-          <!-- Foto Corte 5 -->
-          <div class="aspect-square bg-neutral-900 border border-neutral-800 overflow-hidden group">
-            <img src="img/corte-5.jpg" alt="Corte 5" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-300">
-          </div>
-
-          <!-- Foto Corte 6 -->
-          <div class="aspect-square bg-neutral-900 border border-neutral-800 overflow-hidden group">
-            <img src="img/corte-6.jpg" alt="Corte 6" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-300">
-          </div>
-
-          <!-- Foto Corte 7 -->
-          <div class="aspect-square bg-neutral-900 border border-neutral-800 overflow-hidden group">
-            <img src="img/corte-7.jpg" alt="Corte 7" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-300">
-          </div>
-
-          <!-- Foto Corte 8 -->
-          <div class="aspect-square bg-neutral-900 border border-neutral-800 overflow-hidden group">
-            <img src="img/corte-8.jpg" alt="Corte 8" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-300">
-          </div>
-
+          <div class="aspect-square bg-neutral-900 border border-neutral-800 overflow-hidden group cursor-pointer"><img src="fotos/ruben1.webp" alt="Degradado bajo con textura ondulada en la parte superior, vista lateral" width="800" height="800" loading="lazy" decoding="async" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-300"></div>
+          <div class="aspect-square bg-neutral-900 border border-neutral-800 overflow-hidden group cursor-pointer"><img src="fotos/juan1.webp" alt="Corte infantil con raya marcada y degradado" width="800" height="800" loading="lazy" decoding="async" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-300"></div>
+          <div class="aspect-square bg-neutral-900 border border-neutral-800 overflow-hidden group cursor-pointer"><img src="fotos/ruben2.webp" alt="Degradado a piel con diseño de líneas rasuradas en la parte superior" width="800" height="800" loading="lazy" decoding="async" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-300"></div>
+          <div class="aspect-square bg-neutral-900 border border-neutral-800 overflow-hidden group cursor-pointer"><img src="fotos/juan2.webp" alt="Degradado con dos líneas a navaja en el lateral y barba perfilada" width="800" height="800" loading="lazy" decoding="async" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-300"></div>
+          <div class="aspect-square bg-neutral-900 border border-neutral-800 overflow-hidden group cursor-pointer"><img src="fotos/ruben3.webp" alt="Degradado bajo con pelo largo peinado hacia atrás, vista lateral" width="800" height="800" loading="lazy" decoding="async" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-300"></div>
+          <div class="aspect-square bg-neutral-900 border border-neutral-800 overflow-hidden group cursor-pointer"><img src="fotos/juan3.webp" alt="Degradado con dos líneas a navaja en el lateral, vista trasera" width="800" height="800" loading="lazy" decoding="async" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-300"></div>
+          <div class="aspect-square bg-neutral-900 border border-neutral-800 overflow-hidden group cursor-pointer"><img src="fotos/ruben4.webp" alt="Corte texturizado con flequillo y degradado marcado" width="800" height="800" loading="lazy" decoding="async" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-300"></div>
+          <div class="aspect-square bg-neutral-900 border border-neutral-800 overflow-hidden group cursor-pointer"><img src="fotos/juan4.webp" alt="Degradado alto a piel con parte superior texturizada, vista trasera" width="800" height="800" loading="lazy" decoding="async" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-300"></div>
         </div>
       </div>
 
-      <!-- Subapartado 3: El Templo (Fotos del local) -->
       <div>
-        <h3 class="font-impacto text-2xl text-oro tracking-widest uppercase mb-8 border-b border-neutral-800 pb-3">El Templo</h3>
+        <h3 class="font-impacto text-2xl text-oro tracking-widest uppercase mb-8 border-b border-neutral-800 pb-3">El local</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          
-          <!-- Foto Local 1: Fachada o interior general -->
-          <div class="aspect-video bg-neutral-900 border border-neutral-800 overflow-hidden">
-            <img src="img/local-1.jpg" alt="Local 1" class="w-full h-full object-cover grayscale contrast-110">
-          </div>
-
-          <!-- Foto Local 2: Detalle (sillón, navajas, cartel) -->
-          <div class="aspect-video bg-neutral-900 border border-neutral-800 overflow-hidden">
-            <img src="img/local-2.jpg" alt="Local 2" class="w-full h-full object-cover grayscale contrast-110">
-          </div>
-
+          <div class="aspect-video bg-neutral-900 border border-neutral-800 overflow-hidden group cursor-pointer"><img src="fotos/local1.webp" alt="Interior de La Mafia Barber en Trebujena con mural de grafiti con el logo y dos sillones de barbero" width="1400" height="1050" loading="lazy" decoding="async" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-300"></div>
+          <div class="aspect-video bg-neutral-900 border border-neutral-800 overflow-hidden group cursor-pointer"><img src="fotos/local2.webp" alt="Zona de trabajo de La Mafia Barber con sillones, espejos con luz LED y carro de herramientas" width="1400" height="1050" loading="lazy" decoding="async" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-300"></div>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- EL CÓDIGO -->
+  <!-- NORMAS -->
   <section id="reglas" class="py-16 px-4 bg-neutral-950 border-t border-neutral-900">
     <div class="max-w-4xl mx-auto text-center">
-      <h3 class="font-mafia text-4xl text-oro mb-6">El Código del Templo</h3>
+      <h2 class="font-mafia text-4xl text-oro mb-6">El Código del Templo</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-neutral-400 text-xs uppercase tracking-wider">
         <div class="border-t border-neutral-800 pt-4">
-          <p class="font-impacto text-lg text-white mb-1">01. Puntualidad</p>
+          <h3 class="font-impacto text-lg text-white mb-1">01. Puntualidad</h3>
           <p>Llega 5 minutos antes. El tiempo del barbero y del resto se respeta.</p>
         </div>
         <div class="border-t border-neutral-800 pt-4">
-          <p class="font-impacto text-lg text-white mb-1">02. Avisa si Fallas</p>
-          <p>Cancela con mínimo 2 horas de antelación desde el link de tu correo.</p>
+          <h3 class="font-impacto text-lg text-white mb-1">02. Avisa si fallas</h3>
+          <p>Cancela con mínimo 2 horas de antelación desde el enlace de tu correo.</p>
         </div>
         <div class="border-t border-neutral-800 pt-4">
-          <p class="font-impacto text-lg text-white mb-1">03. Sin Sorpresas</p>
+          <h3 class="font-impacto text-lg text-white mb-1">03. Sin sorpresas</h3>
           <p>Lo que ves es lo que pagas. Acabados nítidos sin suplementos raros.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- HORARIO Y CONTACTO -->
+  <!-- HORARIO Y UBICACIÓN -->
   <section id="horario" class="py-16 px-4 max-w-4xl mx-auto border-t border-neutral-900">
+    <h2 class="sr-only">Horario y ubicación</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-      
-      <!-- Horario -->
       <div class="border border-neutral-800 p-6 bg-talego relative">
-        <div class="absolute -top-3 left-4 bg-black px-2 text-xs uppercase text-neutral-500 font-medium">Cuadrante Semanal</div>
-        <h3 class="font-impacto text-2xl tracking-wider text-white mb-4">Apertura</h3>
+        <div class="absolute -top-3 left-4 bg-black px-2 text-xs uppercase text-neutral-400 font-medium">Cuadrante semanal</div>
+        <h3 class="font-impacto text-2xl tracking-wider text-white mb-4">Horario</h3>
         <ul class="space-y-3 text-xs uppercase tracking-wider text-neutral-400">
-          <li class="flex justify-between border-b border-neutral-900 pb-2">
-            <span>Lunes a Viernes</span>
+          <li class="flex flex-col sm:flex-row sm:justify-between gap-1 border-b border-neutral-900 pb-2">
+            <span>Lunes a viernes</span>
             <span class="text-white font-bold">10:00 - 14:00 | 16:30 - 20:30</span>
           </li>
-          <li class="flex justify-between text-neutral-600">
-            <span>Sábados</span>
-            <span>Descanso</span>
-          </li>
-          <li class="flex justify-between text-neutral-600">
-            <span>Domingos</span>
-            <span>Descanso</span>
-          </li>
+          <li class="flex flex-col sm:flex-row sm:justify-between gap-1"><span>Sábados</span><span>Cerrado</span></li>
+          <li class="flex flex-col sm:flex-row sm:justify-between gap-1"><span>Domingos</span><span>Cerrado</span></li>
         </ul>
       </div>
 
-      <!-- Ubicación -->
       <div class="border border-neutral-800 p-6 bg-talego relative">
-        <div class="absolute -top-3 left-4 bg-black px-2 text-xs uppercase text-neutral-500 font-medium">Localización</div>
-        <h3 class="font-impacto text-2xl tracking-wider text-white mb-4">El Punto</h3>
-        <p class="text-neutral-400 text-xs uppercase tracking-wider leading-relaxed mb-4">
-          Calle Veracruz 10, Local Bajo<br>
-          11560, Trebujena - Cádiz
-        </p>
+        <div class="absolute -top-3 left-4 bg-black px-2 text-xs uppercase text-neutral-400 font-medium">Localización</div>
+        <h3 class="font-impacto text-2xl tracking-wider text-white mb-4">Cómo llegar</h3>
+        <address class="not-italic text-neutral-400 text-xs uppercase tracking-wider leading-relaxed mb-4">
+          Calle Veracruz 10, Local Bajo<br>11560, Trebujena - Cádiz
+        </address>
         <p class="text-xs uppercase tracking-wider text-neutral-400 mb-6">
           Teléfono / WhatsApp: <a href="tel:+34600000000" class="text-oro font-bold hover:underline">+34 600 00 00 00</a>
         </p>
-        <a href="https://maps.app.goo.gl/mbhdMkFhfhW1MGqb9" target="_blank" rel="noopener noreferrer" class="inline-block border border-oro/60 hover:border-oro text-oro font-impacto tracking-widest text-sm px-4 py-2 uppercase transition duration-300 transform active:scale-95 bg-black">
-          Abrir en el Mapa
+        <a href="https://maps.app.goo.gl/mbhdMkFhfhW1MGqb9" target="_blank" rel="noopener noreferrer" class="inline-block border border-oro/60 hover:border-oro text-oro font-impacto tracking-widest text-sm px-4 py-2 uppercase transition duration-300 active:scale-95 bg-black focus-visible:ring-2 focus-visible:ring-oro">
+          Abrir en el mapa<span class="sr-only"> (se abre en una pestaña nueva)</span>
         </a>
       </div>
-
     </div>
   </section>
 
-  <!-- FOOTER -->
+  </main>
+
   <footer class="py-8 text-center border-t border-neutral-900 bg-black">
-    <p class="font-mafia text-xl text-neutral-600 tracking-wider leading-none">La Mafia Barber</p>
-    <p class="font-impacto text-xs text-neutral-700 tracking-widest uppercase mt-1">Barber Club</p>
-    <p class="text-[10px] text-neutral-800 uppercase tracking-widest mt-3">© 2026. Todos los derechos reservados.</p>
+    <p class="font-mafia text-xl text-neutral-400 tracking-wider leading-none">La Mafia Barber</p>
+    <p class="font-impacto text-xs text-neutral-500 tracking-widest uppercase mt-1">Barber Club · Trebujena, Cádiz</p>
+    <p class="text-xs text-neutral-500 mt-3">
+      <a href="aviso-legal.html" class="hover:text-oro underline">Aviso legal</a> ·
+      <a href="privacidad.html" class="hover:text-oro underline">Privacidad y cookies</a>
+    </p>
+    <p class="text-xs text-neutral-500 uppercase tracking-widest mt-3">© 2026 La Mafia Barber. Todos los derechos reservados.</p>
   </footer>
 
+  <script>
+    const audio = document.getElementById('bgMusic');
+    const btn = document.getElementById('playPauseBtn');
+    const playIcon = document.getElementById('playIcon');
+    const pauseIcon = document.getElementById('pauseIcon');
+
+    const setUI = (playing) => {
+      playIcon.classList.toggle('hidden', playing);
+      pauseIcon.classList.toggle('hidden', !playing);
+      btn.setAttribute('aria-pressed', String(playing));
+      btn.setAttribute('aria-label', playing ? 'Pausar música' : 'Reproducir música');
+    };
+
+    btn.addEventListener('click', async () => {
+      try {
+        if (audio.paused) await audio.play();
+        else audio.pause();
+      } catch (e) {
+        console.warn('No se pudo reproducir el audio', e);
+        setUI(false);
+      }
+    });
+
+    audio.addEventListener('play', () => setUI(true));
+    audio.addEventListener('pause', () => setUI(false));
+
+    document.querySelectorAll('#galeria .group').forEach((el) => {
+      el.addEventListener('click', () => el.classList.toggle('foto-color'));
+    });
+  </script>
 </body>
 </html>
